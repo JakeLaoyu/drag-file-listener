@@ -26,7 +26,6 @@ class Drag {
   readFileFinish () {
     Object.keys(this.currentDirObj).forEach(async path => {
       this.currentDirObj[path].files = await Promise.all(this.currentDirObj[path].files)
-      console.log('this.currentDirObj[path].files', this.currentDirObj[path].files)
       this.files = this.files.concat(this.currentDirObj[path].files)
       this.debounceHandleCheck()
     })
@@ -98,11 +97,9 @@ class Drag {
       files: []
     }
     if (pathArr.length === 2) this.filesTree.push(dirObj)
-    console.log('this.currentDirObj', this.currentDirObj)
     this.currentDirObj[fullPath] = dirObj
     pathArr.pop()
     this.currentDirObj[pathArr.join('/')] && this.currentDirObj[pathArr.join('/')].children.push(dirObj)
-    console.log('this.currentDirObj', this.currentDirObj)
   }
 
   preventDefault (e) {
