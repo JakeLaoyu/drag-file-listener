@@ -10,7 +10,7 @@ class Drag {
     this.debounceHandleCheck = debounce(this.returnFile, 300)
     this.debounceReadFileFinish = debounce(this.readFileFinish, 300)
     this.files = []
-    this.filesTree = {}
+    this.filesTree = []
 
     this.currentDirObj = {} // path -> dirObj
     this.bindDrag()
