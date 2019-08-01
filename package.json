@@ -1,9 +1,11 @@
 {
   "name": "drag-file-listener",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "为元素绑定拖拽事件，并获取拖拽文件",
+  "main": "./libs/index.js",
+  "module": "./libs/index.esm.js",
   "scripts": {
+    "dev": "rollup --config rollup.config.js --watch",
     "libs": "rollup --config rollup.config.js"
   },
   "author": "",
@@ -12,8 +14,19 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
     "rollup": "^1.18.0",
     "rollup-plugin-babel": "^4.3.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "lodash": "^4.17.15"
   }
 }
