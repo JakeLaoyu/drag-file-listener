@@ -1,0 +1,19 @@
+{
+  "name": "drag-file-listener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "libs": "rollup --config rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "rollup": "^1.18.0",
+    "rollup-plugin-babel": "^4.3.3"
+  }
+}
