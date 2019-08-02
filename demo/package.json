@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "drag-file-listener": "0.0.3",
     "vue": "^2.6.10"
   },
   "devDependencies": {

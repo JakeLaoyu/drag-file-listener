@@ -630,7 +630,7 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.5.5":
   version "7.5.5"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha1-dPulbTXvvspEQJHHhQzNSU/S8TI=
@@ -2704,6 +2704,14 @@ dotenv@^7.0.0:
   version "7.0.0"
   resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
   integrity sha1-or481Sc2ZzIG6KhftSEO6ilijnw=
+
+drag-file-listener@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npm.taobao.org/drag-file-listener/download/drag-file-listener-0.0.3.tgz#9c91e0dff65a352a8ee4fafd4074e1b9c311dd48"
+  integrity sha1-nJHg3/ZaNSqO5Pr9QHThucMR3Ug=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    lodash "^4.17.15"
 
 duplexer@^0.1.1:
   version "0.1.1"
