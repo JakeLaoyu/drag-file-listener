@@ -101,7 +101,10 @@ class Drag {
 
   createDirObj (dir) {
     const { fullPath, name } = dir
-    const parentPath = fullPath.replace(name, '')
+    let parentPath = fullPath.replace(name, '')
+    if (parentPath.length !== 1) {
+      parentPath = parentPath.substring(0, parentPath.length - 1)
+    }
 
     if (this.currentDirObj[fullPath]) return
 
