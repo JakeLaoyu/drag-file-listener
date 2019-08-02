@@ -28,7 +28,7 @@ const drager = new DragLitener({
 | props    | must | type     | default | description                                                                    |
 | -------- | ---- | -------- | ------- | ------------------------------------------------------------------------------ |
 | selector | true | element  | -       | listen element                                                                 |
-| drop     | true | function | -       | drop event, get the file and directory tree `function({ files, filesTree }){}` |
+| drop     | true | function | -       | drop event, get the file and directory tree <br/> `function({ files, filesTree }){}` |
 
 * filesTree
 

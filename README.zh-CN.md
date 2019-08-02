@@ -28,7 +28,7 @@ const drager = new DragLitener({
 | props    | must | type     | default | description                                                   |
 | -------- | ---- | -------- | ------- | ------------------------------------------------------------- |
 | selector | true | element  | -       | 需要监听的元素                                                |
-| drop     | true | function | -       | deop事件，返回文件和目录树 `function({ files, filesTree }){}` |
+| drop     | true | function | -       | deop事件，返回文件和目录树 <br/> `function({ files, filesTree }){}` |
 
 * filesTree
 
