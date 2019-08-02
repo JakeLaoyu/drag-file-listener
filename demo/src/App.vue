@@ -42,7 +42,7 @@ export default {
       selector: document.querySelector('.drag'),
       drop: this.outputFile
     })
-    console.log(this.drag.files)
+    console.log(this.drag.readingDirPath)
   }
 }
 </script>
