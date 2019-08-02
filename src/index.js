@@ -14,6 +14,17 @@ class Drag {
 
     this.currentDirObj = {} // path -> dirObj
     this.bindDrag()
+    this.initData()
+  }
+
+  initData () {
+    this.currentDirObj = {}
+    this.filesTree = []
+    this.files = []
+    this.createDirObj({
+      name: '',
+      fullPath: '/'
+    })
   }
 
   bindDrag () {
@@ -37,6 +48,7 @@ class Drag {
       files: this.files,
       filesTree: this.filesTree
     })
+    this.initData()
   }
 
   dragHandler (e) {
@@ -68,10 +80,16 @@ class Drag {
 
   traverseFileTree (item) {
     if (item.isFile) {
-      if (item.name.charAt(0) === '.') return
-      const filePath = item.fullPath.split('/')
-      filePath.pop()
-      this.currentDirObj[filePath.join('/')].files.push(new Promise(resolve => {
+      const { fullPath, name } = item
+
+      if (name.charAt(0) === '.') return // 排除隐藏文件
+
+      let parentPath = fullPath.replace(name, '')
+      if (parentPath.length !== 1) {
+        parentPath = parentPath.substring(0, parentPath.length - 1)
+      }
+
+      this.currentDirObj[parentPath].files.push(new Promise(resolve => {
         item.file(file => {
           resolve(file)
         })
@@ -87,7 +105,8 @@ class Drag {
 
   createDirObj (dir) {
     const { fullPath, name } = dir
-    const pathArr = fullPath.split('/')
+    const parentPath = fullPath.replace(name, '')
+
     if (this.currentDirObj[fullPath]) return
 
     const dirObj = {
@@ -96,10 +115,13 @@ class Drag {
       children: [],
       files: []
     }
-    if (pathArr.length === 2) this.filesTree.push(dirObj)
+
+    if (fullPath.length === 1) {
+      this.filesTree.push(dirObj)
+    }
     this.currentDirObj[fullPath] = dirObj
-    pathArr.pop()
-    this.currentDirObj[pathArr.join('/')] && this.currentDirObj[pathArr.join('/')].children.push(dirObj)
+    const parent = this.currentDirObj[parentPath]
+    name && parent && parent.children.push(dirObj)
   }
 
   preventDefault (e) {
