@@ -54,10 +54,6 @@ class Drag {
   dragHandler (e) {
     e.preventDefault()
     e.stopPropagation()
-    if (!e.dataTransfer) {
-      console.warning('请使用最新版Chrome 或 firefox 或 Edge浏览器')
-      return
-    }
     var items = e.dataTransfer.items
     for (var i = 0; i < items.length; i++) {
       var item = items[i].webkitGetAsEntry()
