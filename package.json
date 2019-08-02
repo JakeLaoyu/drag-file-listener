@@ -1,6 +1,6 @@
 {
   "name": "drag-file-listener",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "为元素绑定拖拽事件，并获取拖拽文件",
   "main": "./libs/index.js",
   "module": "./libs/index.esm.js",
