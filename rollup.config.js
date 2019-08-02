@@ -1,4 +1,4 @@
-import babel from 'rollup-plugin-babel';
+import babel from 'rollup-plugin-babel'
 
 // rollup.config.js
 export default {
@@ -11,11 +11,11 @@ export default {
     {
       file: 'libs/index.esm.js',
       format: 'esm'
-    },
+    }
   ],
   plugins: [
     babel({
       exclude: 'node_modules/**'
     })
   ]
-};
+}
