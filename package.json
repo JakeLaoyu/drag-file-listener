@@ -6,10 +6,13 @@
   "module": "./libs/index.esm.js",
   "scripts": {
     "dev": "rollup --config rollup.config.js --watch",
-    "libs": "rollup --config rollup.config.js"
+    "libs": "rollup --config rollup.config.js",
+    "prepublish": "npm run libs"
   },
+  "repository": "JakeLaoyu/drag-file-listener",
+  "homepage": "https://github.com/JakeLaoyu/drag-file-listener",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
