@@ -85,10 +85,7 @@ class Drag {
 
       if (name.charAt(0) === '.') return // 排除隐藏文件
 
-      let parentPath = fullPath.replace(name, '')
-      if (parentPath.length !== 1) {
-        parentPath = parentPath.substring(0, parentPath.length - 1)
-      }
+      const parentPath = Drag.getParentPath(fullPath, name)
 
       this.currentDirObj[parentPath].files.push(new Promise(resolve => {
         item.file(file => {
@@ -105,10 +102,7 @@ class Drag {
 
   createDirObj (dir) {
     const { fullPath, name } = dir
-    let parentPath = fullPath.replace(name, '')
-    if (parentPath.length !== 1) {
-      parentPath = parentPath.substring(0, parentPath.length - 1)
-    }
+    const parentPath = Drag.getParentPath(fullPath, name)
 
     if (this.currentDirObj[fullPath]) return
 
@@ -138,6 +132,14 @@ class Drag {
 
   checkHasReadingDir () {
     if (this.readingDirPath.size === 0) this.readFileFinish()
+  }
+
+  static getParentPath (fullPath, name) {
+    let parentPath = fullPath.replace(name, '')
+    if (parentPath.length !== 1) {
+      parentPath = parentPath.substring(0, parentPath.length - 1)
+    }
+    return parentPath
   }
 
   preventDefault (e) {
