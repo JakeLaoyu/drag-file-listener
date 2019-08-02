@@ -1,5 +1,7 @@
 The listener element drags and drops into the file and returns the file and directory tree
 
+![](https://img.shields.io/bundlephobia/minzip/drag-file-listener)
+
 [中文文档](https://github.com/JakeLaoyu/drag-file-listener/blob/master/README.zh-CN.md) | [Englist doc](https://github.com/JakeLaoyu/drag-file-listener/blob/master/README.md)
 
 ## DEMO
