@@ -17,7 +17,7 @@ export default {
   mounted () {
     new DragLitener({
       selector: document.querySelector('.drag'),
-      callback: this.outputFile
+      drop: this.outputFile
     })
   }
 }

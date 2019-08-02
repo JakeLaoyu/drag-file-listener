@@ -6,7 +6,7 @@ class Drag {
       throw new Error('selector is must')
     }
     this.selector = options.selector
-    this.callback = options.callback
+    this.drop = options.drop
     this.debounceHandleCheck = debounce(this.returnFile, 300)
     this.debounceReadFileFinish = debounce(this.readFileFinish, 300)
     this.files = []
@@ -44,7 +44,7 @@ class Drag {
 
   async returnFile () {
     // 回调
-    this.callback({
+    this.drop({
       files: this.files,
       filesTree: this.filesTree
     })
