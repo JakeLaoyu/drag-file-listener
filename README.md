@@ -26,9 +26,9 @@ const drager = new DragLitener({
 | selector | true | element  | -       | listen element                                                                 |
 | drop     | true | function | -       | drop event, get the file and directory tree `function({ files, filesTree }){}` |
 
-### filesTree
+* filesTree
 
-```json
+```js
 [{
   "name": "文件夹名称",
   "fullPath": "路径",

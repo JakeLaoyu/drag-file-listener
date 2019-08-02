@@ -26,9 +26,9 @@ const drager = new DragLitener({
 | selector | true | element  | -       | 需要监听的元素                                                |
 | drop     | true | function | -       | deop事件，返回文件和目录树 `function({ files, filesTree }){}` |
 
-### filesTree
+* filesTree
 
-```json
+```js
 [{
   "name": "文件夹名称",
   "fullPath": "路径",
