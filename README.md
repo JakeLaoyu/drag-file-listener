@@ -2,6 +2,10 @@ The listener element drags and drops into the file and returns the file and dire
 
 [中文文档](https://github.com/JakeLaoyu/drag-file-listener/blob/master/README.zh-CN.md) | [Englist doc](https://github.com/JakeLaoyu/drag-file-listener/blob/master/README.md)
 
+## DEMO
+
+[codesandbox](https://codesandbox.io/s/drag-file-listener-demo-vlu55)
+
 ## Installation
 
 ```sh
