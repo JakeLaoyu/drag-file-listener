@@ -40,3 +40,17 @@ const drager = new DragLitener({
   "files":  [],  //当前文件夹下文件
 }]
 ```
+
+## Instance Methods
+
+* remove listener
+
+```js
+drager.removeListener()
+```
+
+* add listener
+
+```js
+drager.addListener()
+```

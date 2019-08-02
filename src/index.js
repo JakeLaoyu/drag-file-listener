@@ -11,25 +11,19 @@ class Drag {
 
     this.currentDirObj = {} // path -> dirObj
     this.readingDirPath = new Set()
-    this.bindDrag()
+    this.addListener()
     this.initData()
   }
 
   initData () {
-    this.currentDirObj = {}
-    this.filesTree = []
     this.files = []
+    this.filesTree = []
+    this.currentDirObj = {}
+    this.readingDirPath = new Set()
     this.createDirObj({
       name: '',
       fullPath: '/'
     })
-  }
-
-  bindDrag () {
-    this.selector.addEventListener('drop', this.dragHandler.bind(this))
-    this.selector.addEventListener('dragenter', this.preventDefault)
-    this.selector.addEventListener('dragover', this.preventDefault)
-    this.selector.addEventListener('dragleave', this.preventDefault)
   }
 
   async readFileFinish () {
@@ -149,6 +143,20 @@ class Drag {
   preventDefault (e) {
     e.preventDefault()
     e.stopPropagation()
+  }
+
+  addListener () {
+    this.selector.addEventListener('drop', this.dragHandler.bind(this))
+    this.selector.addEventListener('dragenter', this.preventDefault)
+    this.selector.addEventListener('dragover', this.preventDefault)
+    this.selector.addEventListener('dragleave', this.preventDefault)
+  }
+
+  removeListener () {
+    this.selector.removeEventListener('drop', this.dragHandler.bind(this))
+    this.selector.removeEventListener('dragenter', this.preventDefault)
+    this.selector.removeEventListener('dragover', this.preventDefault)
+    this.selector.removeEventListener('dragleave', this.preventDefault)
   }
 }
 

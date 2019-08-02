@@ -40,3 +40,17 @@ const drager = new DragLitener({
   "files":  [],  //当前文件夹下文件
 }]
 ```
+
+## 实例方法
+
+* 移除事件监听
+
+```js
+drager.removeListener()
+```
+
+* 添加事件监听
+
+```js
+drager.addListener()
+```
