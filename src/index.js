@@ -7,7 +7,6 @@ class Drag {
     }
     this.selector = options.selector
     this.drop = options.drop
-    this.debounceHandleCheck = debounce(this.returnFile, 300)
     this.debounceReadFileFinish = debounce(this.readFileFinish, 300)
     this.files = []
     this.filesTree = []
@@ -34,12 +33,19 @@ class Drag {
     this.selector.addEventListener('dragleave', this.preventDefault)
   }
 
-  readFileFinish () {
+  async readFileFinish () {
+    const getFilesPromiseArr = []
     Object.keys(this.currentDirObj).forEach(async path => {
-      this.currentDirObj[path].files = await Promise.all(this.currentDirObj[path].files)
-      this.files = this.files.concat(this.currentDirObj[path].files)
-      this.debounceHandleCheck()
+      getFilesPromiseArr.push(new Promise(resolve => {
+        Promise.all(this.currentDirObj[path].files).then(files => {
+          this.currentDirObj[path].files = files
+          this.files = this.files.concat(files)
+          resolve()
+        })
+      }))
     })
+    await Promise.all(getFilesPromiseArr)
+    this.returnFile()
   }
 
   async returnFile () {
