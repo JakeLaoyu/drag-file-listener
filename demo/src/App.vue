@@ -38,10 +38,11 @@ export default {
     }
   },
   mounted () {
-    new DragLitener({
+    this.drag = new DragLitener({
       selector: document.querySelector('.drag'),
       drop: this.outputFile
     })
+    console.log(this.drag.files)
   }
 }
 </script>

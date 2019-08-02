@@ -1,5 +1,3 @@
-import debounce from 'lodash/debounce'
-
 class Drag {
   constructor (options) {
     if (!options.selector) {
@@ -7,11 +5,12 @@ class Drag {
     }
     this.selector = options.selector
     this.drop = options.drop
-    this.debounceReadFileFinish = debounce(this.readFileFinish, 300)
+
     this.files = []
     this.filesTree = []
 
     this.currentDirObj = {} // path -> dirObj
+    this.readingDirPath = new Set()
     this.bindDrag()
     this.initData()
   }
@@ -67,16 +66,22 @@ class Drag {
         this.traverseFileTree(item)
       }
     }
+    this.checkHasReadingDir()
   }
 
   // readEntries 每次最多返回100个，需要重复调用
   // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryReader/readEntries
-  readerEntries (dirReader) {
+  readerEntries (dirReader, dir) {
+    this.addReadingDir(dir)
     dirReader.readEntries(entries => {
       for (var i = 0; i < entries.length; i++) {
         this.traverseFileTree(entries[i])
       }
-      if (entries.length) this.readerEntries(dirReader)
+      if (entries.length) {
+        this.readerEntries(dirReader, dir)
+      } else {
+        this.deleteReadingDir(dir)
+      }
     })
   }
 
@@ -100,9 +105,8 @@ class Drag {
       this.createDirObj(item)
 
       var dirReader = item.createReader()
-      this.readerEntries(dirReader)
+      this.readerEntries(dirReader, item)
     }
-    this.debounceReadFileFinish()
   }
 
   createDirObj (dir) {
@@ -127,6 +131,19 @@ class Drag {
     this.currentDirObj[fullPath] = dirObj
     const parent = this.currentDirObj[parentPath]
     name && parent && parent.children.push(dirObj)
+  }
+
+  addReadingDir (dir) {
+    if (!this.readingDirPath.has(dir.fullPath)) this.readingDirPath.add(dir.fullPath)
+  }
+
+  deleteReadingDir (dir) {
+    if (this.readingDirPath.has(dir.fullPath)) this.readingDirPath.delete(dir.fullPath)
+    this.checkHasReadingDir()
+  }
+
+  checkHasReadingDir () {
+    if (this.readingDirPath.size === 0) this.readFileFinish()
   }
 
   preventDefault (e) {
