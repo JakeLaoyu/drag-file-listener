@@ -12,7 +12,7 @@
   },
   "repository": "JakeLaoyu/drag-file-listener",
   "homepage": "https://github.com/JakeLaoyu/drag-file-listener",
-  "author": "",
+  "author": "Jake <jake.laoyu@gmail.com>",
   "license": "MIT",
   "files": [
     "libs"
