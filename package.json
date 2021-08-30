@@ -1,8 +1,12 @@
 {
   "name": "drag-file-listener",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "为元素绑定拖拽事件，并获取拖拽文件",
-  "keywords": ["drag","file","upload"],
+  "keywords": [
+    "drag",
+    "file",
+    "upload"
+  ],
   "main": "./libs/index.js",
   "module": "./libs/index.esm.js",
   "scripts": {
@@ -30,7 +34,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "rollup": "^1.18.0",
-    "rollup-plugin-babel": "^4.3.3"
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",

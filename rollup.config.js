@@ -1,4 +1,6 @@
 import babel from 'rollup-plugin-babel'
+import analyze from 'rollup-plugin-analyzer'
+import { terser } from 'rollup-plugin-terser'
 
 // rollup.config.js
 export default {
@@ -16,6 +18,8 @@ export default {
   plugins: [
     babel({
       exclude: 'node_modules/**'
-    })
+    }),
+    terser(),
+    analyze({ summaryOnly: true })
   ]
 }
